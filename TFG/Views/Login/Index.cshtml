@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Gestiona tu cuenta";
+}
+
+<h2>@ViewData["Title"].</h2>
+
+
+<div>
+    <h4>Cambia la configuracion de tu cuenta</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Contraseña:</dt>
+        <dd>
+            <a asp-controller="Login" asp-action="CambiarPassword" class="btn-bracketed">Cambiar</a>
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Perfiles:</dt>
+        <dd>
+            <a asp-controller="Perfil" asp-action="Index" class="btn-bracketed">Perfiles</a>
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Usuarios:</dt>
+        <dd>
+            <a asp-controller="Usuario" asp-action="Index" class="btn-bracketed">Usuarios</a>
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Comunidad Autonoma:</dt>
+        <dd>
+            <a asp-controller="ComunidadAutonomas" asp-action="Index" class="btn-bracketed">Comunidades Autonomas</a>
+        </dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>Especialidades:</dt>
+        <dd>
+            <a asp-controller="Especialidad" asp-action="Index" class="btn-bracketed">Especialidades</a>
+        </dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>Niveles Educativos:</dt>
+        <dd>
+            <a asp-controller="NivelEducativo" asp-action="Index" class="btn-bracketed">Niveles Educativos</a>
+        </dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>Cursos Escolares:</dt>
+        <dd>
+            <a asp-controller="CursoEscolar" asp-action="Index" class="btn-bracketed">Cursos Escolares</a>
+        </dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>Planes de Estudio:</dt>
+        <dd>
+            <a asp-controller="PlanEstudio" asp-action="Index" class="btn-bracketed">Planes de Estudio</a>
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>Asignaturas:</dt>
+        <dd>
+            <a asp-controller="Asignatura" asp-action="Index" class="btn-bracketed">Asignaturas</a>
+        </dd>
+    </dl>
+
+</div>

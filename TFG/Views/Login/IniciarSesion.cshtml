@@ -1,0 +1,67 @@
+@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@model TFG.Models.ViewModels.IniciarSesionViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+
+    @{
+        ViewData["Title"] = "Iniciar Sesion";
+    }    
+
+    <h2>@ViewData["Title"]</h2>
+
+    <div class="row">
+        <div class="col-md-8">
+            <section>
+                <form asp-controller="Login" asp-action="IniciarSesion" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+                    <h4></h4>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger">
+                        <div class="form-group">
+                            <label asp-for="CodigoCentro" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <input asp-for="CodigoCentro" class="form-control" />
+                                <span asp-validation-for="CodigoCentro" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password" class="col-md-2 control-label"></label>
+                            <div class="col-md-10">
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    <label asp-for="Recordarme">
+                                        <input asp-for="Recordarme" />
+                                        @Html.DisplayNameFor(m => m.Recordarme)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" class="btn btn-default">Iniciar</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </form>
+            </section>  
+                       
+                        
+                        
+
+
+        </div>
+    </div>
+
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

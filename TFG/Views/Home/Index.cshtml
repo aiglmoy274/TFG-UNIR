@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+   
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">                
+                <img src="~/images/b1.svg" alt="Planificaciones" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Diseña de forma fácil la plantilla de funcionamiento de tu centro 
+                        <a asp-action="Unete" class="btn btn-default">Únete</a>
+                    </p>
+                </div>                                
+            </div>
+            <div class="item">
+                <img src="~/images/b2.svg" alt="Reducciones" class="img-responsive" />                
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Añade las reduciones horarias de tu profesorado
+                        <a asp-action="Unete" class="btn btn-default">Únete</a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/b3.svg" alt="Asignaturas" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Configura los grupos y las asignaturas
+                        <a asp-action="Unete" class="btn btn-default">Únete</a>
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="~/images/b4.svg" alt="Resultados" class="img-responsive" />
+                <div class="carousel-caption" role="option">
+                    <p>
+                        Obtén los resultados y toma las decisiones fácilmente
+                        <a asp-action="Unete" class="btn btn-default">Únete</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previo</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <h2>Paso 1</h2>
+            <ul>
+                <li>Crea las planificaciones que encesites</li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Paso 2</h2>
+            <ul>                
+                <li>Añade las reduciones horarias de tu profesorado</li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Paso 3</h2>
+            <ul>
+                <li>Configura los grupos y las asignaturas</li> 
+                <li>Los planes de estudios estarán definidos para facilitarte la configuración</li>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <h2>Paso 4</h2>
+            <ul>
+                <li>Obtén los resultados y toma las decisiones fácilmente</li>
+            </ul>
+        </div>
+    </div>
+    

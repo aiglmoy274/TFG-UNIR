@@ -1,0 +1,52 @@
+@model IEnumerable<TFG.Models.ViewModels.ResultadosViewModel>
+
+@{    
+    ViewData["Title"] = "Resultados";
+}
+
+<form asp-action="BorrarPlanificacionReduccion" role="form">
+    <div class="top-buffer"></div>
+    <div class="panel-body">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                @ViewData["Title"]
+            </div>
+            <div class="panel-body">
+                <div class="top-buffer"></div>
+                <table id="tableResultados" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>                            
+                            <th>Especialidad</th>
+                            <th>Horas Reduccion</th>
+                            <th>Horas Docencia</th>  
+                            <th>Total Horas</th>
+                            <th>Num. Profesores/as (Horas por cuadrar)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Especialidad.Descripcion
+                                </td>
+                                <td>                                          
+                                    @item.HorasSemanalesReduccion                                                                         
+                                </td>
+                                <td>
+                                    @item.HorasSemanalesAsignaturas
+                                </td>
+                                <td>
+                                    @item.TotalHorasSemanales
+                                </td>
+                                <td>
+                                    @item.NumProfesores (@item.HorasFaltanCuadrarProfesor)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>

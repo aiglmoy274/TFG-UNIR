@@ -1,0 +1,20 @@
+c:\users\agustin\documents\visual studio 2017\Projects\TFG\TFG\bin\Debug\netcoreapp1.1\TFG.deps.json
+c:\users\agustin\documents\visual studio 2017\Projects\TFG\TFG\bin\Debug\netcoreapp1.1\TFG.runtimeconfig.json
+c:\users\agustin\documents\visual studio 2017\Projects\TFG\TFG\bin\Debug\netcoreapp1.1\TFG.runtimeconfig.dev.json
+c:\users\agustin\documents\visual studio 2017\Projects\TFG\TFG\bin\Debug\netcoreapp1.1\TFG.dll
+c:\users\agustin\documents\visual studio 2017\Projects\TFG\TFG\bin\Debug\netcoreapp1.1\TFG.pdb
+c:\users\agustin\documents\visual studio 2017\Projects\TFG\TFG\obj\Debug\netcoreapp1.1\UserSecretsAssemblyInfo.cs
+c:\users\agustin\documents\visual studio 2017\Projects\TFG\TFG\obj\Debug\netcoreapp1.1\TFG.AssemblyInfo.cs
+c:\users\agustin\documents\visual studio 2017\Projects\TFG\TFG\obj\Debug\netcoreapp1.1\TFG.dll
+c:\users\agustin\documents\visual studio 2017\Projects\TFG\TFG\obj\Debug\netcoreapp1.1\TFG.pdb
+C:\Users\Agustin\Documents\Visual Studio 2017\Projects\TFG\TFG\obj\Debug\netcoreapp1.1\TFG.csprojResolveAssemblyReference.cache
+C:\Users\Agustin\Google Drive\UNIR\ESTUDIOS\5.TRABAJO_FIN_GRADO\SOLUCION\TFG\TFG\bin\Debug\netcoreapp1.1\TFG.deps.json
+C:\Users\Agustin\Google Drive\UNIR\ESTUDIOS\5.TRABAJO_FIN_GRADO\SOLUCION\TFG\TFG\bin\Debug\netcoreapp1.1\TFG.runtimeconfig.json
+C:\Users\Agustin\Google Drive\UNIR\ESTUDIOS\5.TRABAJO_FIN_GRADO\SOLUCION\TFG\TFG\bin\Debug\netcoreapp1.1\TFG.runtimeconfig.dev.json
+C:\Users\Agustin\Google Drive\UNIR\ESTUDIOS\5.TRABAJO_FIN_GRADO\SOLUCION\TFG\TFG\bin\Debug\netcoreapp1.1\TFG.dll
+C:\Users\Agustin\Google Drive\UNIR\ESTUDIOS\5.TRABAJO_FIN_GRADO\SOLUCION\TFG\TFG\bin\Debug\netcoreapp1.1\TFG.pdb
+C:\Users\Agustin\Google Drive\UNIR\ESTUDIOS\5.TRABAJO_FIN_GRADO\SOLUCION\TFG\TFG\obj\Debug\netcoreapp1.1\UserSecretsAssemblyInfo.cs
+C:\Users\Agustin\Google Drive\UNIR\ESTUDIOS\5.TRABAJO_FIN_GRADO\SOLUCION\TFG\TFG\obj\Debug\netcoreapp1.1\TFG.AssemblyInfo.cs
+C:\Users\Agustin\Google Drive\UNIR\ESTUDIOS\5.TRABAJO_FIN_GRADO\SOLUCION\TFG\TFG\obj\Debug\netcoreapp1.1\TFG.dll
+C:\Users\Agustin\Google Drive\UNIR\ESTUDIOS\5.TRABAJO_FIN_GRADO\SOLUCION\TFG\TFG\obj\Debug\netcoreapp1.1\TFG.pdb
+C:\Users\Agustin\Google Drive\UNIR\ESTUDIOS\5.TRABAJO_FIN_GRADO\SOLUCION\TFG\TFG\obj\Debug\netcoreapp1.1\TFG.csprojResolveAssemblyReference.cache

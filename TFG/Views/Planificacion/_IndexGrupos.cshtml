@@ -1,0 +1,127 @@
+﻿@model TFG.Models.ViewModels.PlanficacionesViewModel
+
+<script type="text/javascript">
+
+    function CargarPlanificacionAsignaturas(grupoId) {
+        $("#GrupoId").val(grupoId);
+
+        $.ajax({
+            url: "@Url.Action("CargarPlanificacionAsignaturasPorGrupos", "Planificacion")",
+            data: { GrupoId: grupoId },
+            success: function (data) {
+                // En caso de que se ejecute
+
+                var trs = $("#tableAsignaturas tr").length;
+                for (var i = trs-1; i >=1; i--) {
+                    $("#tableAsignaturas").DataTable().row(i-1).remove().draw();
+                }
+                //$("tableAsignaturas > tbody").html("");
+
+                $.each(data, function (id, value) {
+                    $("#tableAsignaturas").DataTable().row.add([
+                        "<input name='selBorrarPlanificacionAsignatura' type='checkbox' value='"+value.id+"' />",
+                        value.especialidad,
+                        value.asignatura,
+                        value.horasSemanales
+                    ]).draw();
+                });
+            }
+        });
+
+
+        $.ajax({
+            url: '@Url.Action("CargarAsignaturas", "Planificacion")',
+            data: { GrupoId: grupoId },
+            datatype: "json",
+            success: function (data) {
+                var bFlag = false;
+                var asignaturaId;
+                var items = '';
+                $.each(data, function (id, value) {
+                    if (!bFlag) {
+                        bFlag = true;
+                        $("#EspecialidadIdSelect option[value=" + value.especialidadId + "]").attr("selected", true);
+                        $("#HorasSemanalesPlaAsi").val(value.horasSemanales);
+                    }
+                    items += "<option value='" + value.id + "'>" + value.descripcion + "</option>";
+                });
+                $('#AsignaturaIdSelect').html(items);
+
+            },
+        });
+
+
+
+    }
+</script>
+
+
+@{
+    ViewData["Title"] = "Grupos";
+}
+
+
+
+
+<form asp-action="BorrarGrupo" role="form">
+    <input type="hidden" name="PlanificacionId" value="@Model.PlanificacionId" />
+    <div class="top-buffer"></div>
+    <div class="panel-body">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                @ViewData["Title"]
+                @if(Model.PlanificacionId!=0)
+                {
+                    <div class="pull-right">
+
+                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#crearGrupoModal">
+                            <i class="glyphicon glyphicon-plus"></i>
+                        </button>
+                        <span onclick="return confirm('Se perderán los datos. ¿Desea continuar?')">
+                            <button data-dismiss="modal" id="borrarGrupo" class="btn btn-danger btn-sm" type="submit">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                        </span>
+                    </div>
+                }
+            </div>
+            <div class="alert-danger">
+                @Html.ValidationSummary(false)
+            </div>
+            <div class="panel-body">
+                <div class="top-buffer"></div>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Grupo</th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Grupos)
+                        {
+                            <tr>
+                                <td>
+                                    @if (item.Id == ViewBag.GrupoId)
+                                    {
+                                        <input name="selBorrarGrupo" type="radio" value="@item.Id" onchange="return CargarPlanificacionAsignaturas(@item.Id)" />
+                                    }
+                                    else
+                                    {
+                                        <input name="selBorrarGrupo" type="radio" value="@item.Id" onchange="return CargarPlanificacionAsignaturas(@item.Id)" />
+                                    }
+                                </td>
+
+                                <td>
+                                    @item.Descripcion                                    
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+
+@await Html.PartialAsync("_CrearGrupo", Model.Grupo)

@@ -1,0 +1,66 @@
+﻿@model TFG.Models.PlanificacionAsignatura
+    
+<script type="text/javascript">
+
+    function cargarDatos() {
+        var asignaturaId = document.getElementById("AsignaturaIdSelect").value;
+        $.ajax({
+            url: '@Url.Action("CargarDatosAsignaturas", "Planificacion")',
+            data: { AsignaturaId: asignaturaId },
+            datatype: "json",
+            success: function (data) {
+                $("#HorasSemanalesPlaAsi").val(data["horasSemanales"]);                
+                $("#EspecialidadIdSelect option[value=" + data["especialidadId"] + "]").attr("selected", true);
+            },
+        })
+
+    }
+
+
+</script>
+
+<div id="crearPlanificacionAsignaturaModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="crearPlanificacionAsignaturaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                    <div class="modal-header">
+                        
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                            
+                        <h4 class="modal-title" id="crearPlanificacionAsignaturaModalLabel">Añadir Asignatura</h4>
+                    </div>
+                
+                <form id="crearPlanificacionAsignaturaForm" method="post" asp-action="CrearPlanificacionAsignatura" role="form">
+                    
+                    <div class="modal-body">
+                        <input type="hidden" id="GrupoId" name="GrupoId" />
+                        <input asp-for="PlanificacionId" class="form-control" type="hidden" />
+                        <div class="form-group">                            
+                            <label asp-for="AsignaturaId" class="control-label"></label>                                                           
+                            <select id="AsignaturaIdSelect" name="AsignaturaId" class="form-control" onchange="return cargarDatos()"></select>                            
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Especialidad" class="control-label"></label>
+                            <select id="EspecialidadIdSelect" name="EspecialidadId" class="form-control" asp-items="ViewBag.EspecialidadId"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Horas Semanales</label>                      
+                            <input id="HorasSemanalesPlaAsi" name="HorasSemanales" class="form-control" type="number"/>                            
+                        </div>      
+                    </div>
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Atrás</button>
+                        
+                        <button class="btn btn-success" id="Guardar" type="submit">Guardar</button>
+                            
+                    </div>
+                </form>
+                    
+            </div>
+        </div>
+
+    </div>
+
+
+   

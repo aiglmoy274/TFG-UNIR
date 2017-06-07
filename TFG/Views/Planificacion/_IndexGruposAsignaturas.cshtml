@@ -1,0 +1,22 @@
+﻿<!--
+Autor: AGUSTÍN IGLESIAS MOYA
+Fecha: 27/04/2017
+
+Controlador que interactua con la vista: PlanificacionController
+
+Vista que muestra:
+    En una tabla la lista de especialidades del profesorado recibidas del controlador, con un checkbox en cada fila de la tabla para seleccionar el elemento a borrar
+    Botón para añadir un nuevo plan de estudio
+    Botón para eliminar los planes de estudio seleccionados en los checkbox
+
+-->
+@model TFG.Models.ViewModels.PlanficacionesViewModel
+
+<div class="row">
+    <div class="col-md-3">
+        @await Html.PartialAsync("_IndexGrupos", Model)
+    </div>
+    <div class="col-md-9">
+        @await Html.PartialAsync("_IndexAsignaturas", Model)
+    </div>
+</div>

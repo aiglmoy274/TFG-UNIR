@@ -1,0 +1,45 @@
+﻿@model TFG.Models.ViewModels.PerfilViewModel
+
+@{
+    if (String.IsNullOrEmpty(Model.Id))
+    {
+        ViewData["Title"] = "Crear Perfil";
+    }
+    else
+    {
+        ViewData["Title"] = "Editar Perfil";
+
+    }
+
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+<div class="panel-body">
+    <form asp-action="CrearEditarPerfil" role="form">
+
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Datos
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                <label asp-for="PerfilNombre" class="control-label"></label>
+                            </dt>
+                            <dd>
+                                <input asp-for="PerfilNombre" class="form-control" />
+                                <span asp-validation-for="PerfilNombre" class="text-danger"></span>
+                            </dd>
+                        </dl>
+                    </div>
+                    <a asp-action="Index" class="btn btn-default">Atrás</a>
+                    <button class="btn btn-success" id="Guardar" type="submit">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

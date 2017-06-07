@@ -1,0 +1,150 @@
+﻿<!--
+Autor: AGUSTÍN IGLESIAS MOYA
+Fecha: 27/04/2017
+
+Controlador que interactua con la vista: PlanificacionController
+
+Vista que muestra:
+    En una tabla la lista de especialidades del profesorado recibidas del controlador, con un checkbox en cada fila de la tabla para seleccionar el elemento a borrar
+    Botón para añadir un nuevo plan de estudio
+    Botón para eliminar los planes de estudio seleccionados en los checkbox
+
+-->
+<!--Colección de Planificaciones del controlador a mostrar-->
+@model TFG.Models.ViewModels.PlanficacionesViewModel
+
+@{
+    ViewData["Title"] = "Planificaciones " + Model.PlanificacionId;
+}
+
+
+<hr />
+<!--Formulario que será enviado por POST al pulsar en el botón borrarEspecialidad-->
+
+<div class="top-buffer"></div>
+    <div class="panel-body">        
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Planificaciones
+                <div class="pull-right">
+
+                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#crearModal">
+                        <i class="glyphicon glyphicon-plus"></i>Nueva Planificacion
+                    </button>
+
+                    <a data-toggle="modal" href="#borrarModal" class="btn btn-danger btn-sm">
+                        <i class="glyphicon glyphicon-trash"></i> Borrar Planificacion
+                    </a>
+
+                </div>
+            </div>
+            <div class="alert-danger">
+                @Html.ValidationSummary(false)
+            </div>
+            <form method="get" asp-action="Index" role="form">
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <label class="control-label">Planificaciones</label>
+                            <select name="PlanificacionId" class="form-control" asp-items="ViewBag.PlanificacionId" onchange="this.form.submit()"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <label class="control-label">Horas semanales</label>
+                            <input disabled  class="form-control" value="@Model.Planificacion.HorasSemanales"/>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+            <div class="panel-body">     
+                
+                  
+                    @if (ViewBag.pestana == 1)
+                    {
+                        <ul class="nav nav-tabs">
+                            <li>
+                                <a data-toggle="tab" href="#reducciones">Reducciones</a>
+                            </li>
+                            <li class="active">
+                                <a data-toggle="tab" href="#asignaturas">Asignaturas</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#resultados">Resultados</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="reducciones" class="tab-pane fade">
+                                @await Html.PartialAsync("_IndexReducciones", Model)
+                            </div>
+                            <div id="asignaturas" class="tab-pane fade  in active">
+                                @await Html.PartialAsync("_IndexGruposAsignaturas", Model)
+                            </div>
+                            <div id="resultados" class="tab-pane fade">
+                                @await Html.PartialAsync("_IndexResultados", Model.Resultados)
+                            </div>
+                        </div>
+                    }
+                    else if (ViewBag.pestana == 2)
+                    {
+                        <ul class="nav nav-tabs">
+                            <li>
+                                <a data-toggle="tab" href="#reducciones">Reducciones</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#asignaturas">Asignaturas</a>
+                            </li>
+                            <li class="active">
+                                <a data-toggle="tab" href="#resultados">Resultados</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="reducciones" class="tab-pane fade">
+                                @await Html.PartialAsync("_IndexReducciones", Model)
+                            </div>
+                            <div id="asignaturas" class="tab-pane fade">
+                                @await Html.PartialAsync("_IndexGruposAsignaturas", Model)
+                            </div>
+                            <div id="resultados" class="tab-pane fade in active">
+                                @await Html.PartialAsync("_IndexResultados", Model.Resultados)
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a data-toggle="tab" href="#reducciones">Reducciones</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#asignaturas">Asignaturas</a>
+                            </li>
+                            <li>
+                                <a data-toggle="tab" href="#resultados">Resultados</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="reducciones" class="tab-pane fade in active">
+                                @await Html.PartialAsync("_IndexReducciones", Model)
+                            </div>
+                            <div id="asignaturas" class="tab-pane fade">
+                                @await Html.PartialAsync("_IndexGruposAsignaturas", Model)
+                            </div>
+                            <div id="resultados" class="tab-pane fade">
+                                @await Html.PartialAsync("_IndexResultados", Model.Resultados)
+                            </div>
+                        </div>
+                    }
+
+            </div>
+        </div>
+    </div>
+
+@await Html.PartialAsync("_BorrarPlanificacion")
+@await Html.PartialAsync("_CrearPlanificacion", Model.Planificacion)
+
+

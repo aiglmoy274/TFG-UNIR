@@ -1,0 +1,70 @@
+﻿@model TFG.Models.Grupo    
+<script type="text/javascript">
+
+    function cargarCursosEscolares() {
+        var planestudioid = document.getElementById("PlanEstudioSelectGrupo").value;
+        $.ajax({
+            url: '@Url.Action("PopulateCursosEscolares", "Planificacion")',
+            data: { PlanEstudioId: planestudioid },
+            datatype: "json",
+            success: function (data) {             
+                var items = '';                
+                $.each(data, function (id, value) {
+
+                    items += "<option value='" + value.id + "'>" + value.descripcion + "</option>";
+                });
+
+                $('#CursoEscolarSelect').html(items);
+            },//End Success
+        })//End Ajax
+
+    }
+
+
+</script>
+
+<div id="crearGrupoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="crearGrupoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                    <div class="modal-header">
+                        
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                            
+                        <h4 class="modal-title" id="crearPlanificacionReduccionModalLabel">Crear Grupo</h4>
+                    </div>
+                
+                <form id="crearGrupoForm" method="post" asp-action="CrearGrupo" role="form">
+                    <div class="modal-body">
+                        <input asp-for="PlanificacionId" class="form-control" type="hidden" />
+                        <div class="form-group">
+                            <label class="control-label">Plan de Estudio</label>
+                            <select id="PlanEstudioSelectGrupo" name="PlanEstudioId" class="form-control" onchange="return cargarCursosEscolares()" asp-items="ViewBag.PlanEstudioId"></select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Curso Escolar</label>
+                            <select id="CursoEscolarSelect" name="CursoEscolarId" class="form-control" asp-items="ViewBag.CursoEscolarId"></select>
+                        </div>
+
+                        <div class="form-group">                            
+                            <label asp-for="Descripcion" class="control-label"></label>                                                           
+                            <input asp-for="Descripcion" class="form-control" />                            
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Atrás</button>
+                        
+                        <button class="btn btn-success" id="Guardar" type="submit">Guardar</button>
+                            
+                    </div>
+                </form>
+                    
+            </div>
+        </div>
+
+    </div>
+
+
+   
